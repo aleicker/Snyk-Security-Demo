@@ -1,0 +1,17 @@
+@import '../../styles/abstracts';
+
+.list {
+  @media (min-width: $breakpoint-medium) {
+    display: flex;
+
+    & > * + * {
+      margin-left: rem(8);
+
+      &::before {
+        content: '|';
+        display: inline-block;
+        margin-right: rem(8);
+      }
+    }
+  }
+}

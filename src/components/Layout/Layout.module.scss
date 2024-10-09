@@ -1,0 +1,15 @@
+@import '../../styles/abstracts';
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+
+  &.hasHeader {
+    margin-top: rem(60);
+  }
+}

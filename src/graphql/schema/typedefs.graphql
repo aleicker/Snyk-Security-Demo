@@ -1,0 +1,94 @@
+scalar Void
+
+type Query {
+  # Expense Group
+  getAllExpenseGroups: [ExpenseGroup]!
+  getExpenseGroupById(_id: String!): ExpenseGroup!
+  # Expense
+  getExpense(_id: String!): Expense!
+  # User
+  loginUser(username: String!, password: String!): Void
+  logoutUser: Void
+  getUser: User!
+  getSecurityQuestions(email: String!): SecurityQuestionsResponse!
+  validateSecurityQuestionAnswers(userId: String!, formData: String!): Boolean!
+}
+
+type Mutation {
+  # User
+  createUser(input: UserInput!): Void
+  # Expense Group
+  addExpenseGroup(input: ExpenseGroupInput!): NewExpenseGroupResponse
+  updateExpenseGroup(expenseGroupId: ID!, input: ExpenseGroupInput!): Void
+  deleteExpenseGroup(expenseGroupId: String!): Void
+  # Expense
+  addExpense(expenseGroupId: ID!, input: ExpenseInput!): Void
+  updateExpense(expenseId: ID!, expenseGroupId: ID!, input: ExpenseInput!): Void
+  deleteExpense(expenseGroupId: String!, expenseId: String!): Void
+  updateExpensePaidStatus(
+    isPaid: Boolean!
+    expenseGroupId: String!
+    expenseId: String!
+  ): Void
+  updatePassword(userId: String!, password: String!): Void
+}
+
+type NewExpenseGroupResponse {
+  _id: String!
+}
+
+type SecurityQuestionsResponse {
+  userId: ID!
+  questions: [SecurityQuestion]!
+}
+
+type SecurityQuestion {
+  _id: ID
+  question: String!
+}
+
+type ExpenseGroup {
+  _id: ID
+  userId: String
+  startDate: String!
+  endDate: String!
+  totalBudget: Float!
+  expenses: [Expense!]!
+}
+
+type Expense {
+  _id: ID
+  name: String!
+  balance: Float!
+  dueDate: String
+  isPaid: Boolean!
+  note: String
+}
+
+type User {
+  _id: String!
+  email: String!
+  username: String!
+}
+
+input UserInput {
+  email: String
+  username: String
+  password: String
+}
+
+input ExpenseGroupInput {
+  startDate: String
+  endDate: String
+  totalBudget: Float
+  expenses: [ExpenseInput!]
+}
+
+input ExpenseInput {
+  _id: String
+  name: String
+  balance: Float
+  dueDate: String
+  isPaid: Boolean
+  note: String
+}

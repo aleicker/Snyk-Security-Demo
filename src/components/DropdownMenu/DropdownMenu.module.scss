@@ -1,0 +1,11 @@
+@import '../../styles/abstracts';
+
+.menu {
+  background-color: $brand;
+  min-width: rem(150);
+}
+
+.link {
+  display: flex;
+  align-items: center;
+}

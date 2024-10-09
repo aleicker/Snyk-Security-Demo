@@ -1,0 +1,26 @@
+@import '../../styles/abstracts';
+
+.container {
+  width: 100%;
+}
+
+.title {
+  font-size: rem(18);
+  text-align: center;
+  margin-bottom: rem(20);
+}
+
+.content {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.tooltip {
+  background: darken($brand, 6%);
+  padding: rem(12);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+
+  & > * + * {
+    margin-top: rem(8);
+  }
+}

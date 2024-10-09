@@ -1,0 +1,72 @@
+@import '../../styles/abstracts';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 60px);
+  overflow-y: hidden;
+
+  @media (min-width: $breakpoint-medium) {
+    &__head__left-content {
+      text-align: left;
+    }
+
+    &__head__right-content {
+      justify-content: flex-end;
+    }
+  }
+}
+
+.head {
+  background-color: darken($brand, 2%);
+}
+
+.headLeft {
+  text-align: center;
+
+  h1 {
+    margin-top: rem(8);
+  }
+}
+
+.headRight {
+  display: flex;
+  justify-content: center;
+}
+
+.body {
+  background-color: $brand;
+  height: 100%;
+  overflow: auto;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: rem(320);
+  background-color: darken($brand, 2%);
+  box-shadow: 0 0 rem(20) rgba(0, 0, 0, 0.7);
+}
+
+.expenseGroupList {
+  & > * + * {
+    margin-top: rem(16);
+  }
+}
+
+@media (min-width: $breakpoint-medium) {
+  .headLeft {
+    text-align: left;
+  }
+
+  .headRight {
+    justify-content: flex-end;
+  }
+
+  .spendingSnapshotFixedContainer {
+    position: fixed;
+    width: 27%;
+  }
+}

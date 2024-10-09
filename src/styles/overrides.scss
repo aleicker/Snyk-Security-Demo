@@ -1,0 +1,12 @@
+.MuiPickersLayout-contentWrapper,
+[class*='MuiAutocomplete-paper'] {
+  background: darken($brand, 5%);
+}
+
+[class*='MuiAutocomplete-root'] {
+  background-color: $brand;
+}
+
+.Mui-checked .MuiSwitch-thumb {
+  color: $success;
+}

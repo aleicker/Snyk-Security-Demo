@@ -1,0 +1,44 @@
+@import '../../styles/abstracts';
+
+.header {
+  height: rem(100);
+  position: fixed;
+  width: 100%;
+
+  & > header {
+    background-color: darken($brand, 5%);
+    background-image: none;
+    box-shadow: none;
+    height: rem(60);
+  }
+}
+
+.link {
+  align-items: center;
+  display: flex;
+  padding: rem(2 4);
+
+  & > * + * {
+    margin-left: rem(8);
+  }
+
+  &:focus {
+    background-color: lighten($brand, 6%);
+  }
+}
+
+.nav {
+  font-size: rem(12);
+
+  & > * + * {
+    margin-left: rem(8);
+  }
+
+  button {
+    min-width: rem(45);
+  }
+
+  @media (min-width: $breakpoint-medium) {
+    font-size: inherit;
+  }
+}

@@ -1,0 +1,53 @@
+mutation createUser($input: UserInput!) {
+  createUser(input: $input)
+}
+
+mutation addExpenseGroup($input: ExpenseGroupInput!) {
+  expenseGroup: addExpenseGroup(input: $input) {
+    _id
+  }
+}
+
+mutation updateExpenseGroup($expenseGroupId: ID!, $input: ExpenseGroupInput!) {
+  updateExpenseGroup(expenseGroupId: $expenseGroupId, input: $input)
+}
+
+mutation deleteExpenseGroup($expenseGroupId: String!) {
+  deleteExpenseGroup(expenseGroupId: $expenseGroupId)
+}
+
+mutation addExpense($expenseGroupId: ID!, $input: ExpenseInput!) {
+  addExpense(expenseGroupId: $expenseGroupId, input: $input)
+}
+
+mutation updateExpense(
+  $expenseId: ID!
+  $expenseGroupId: ID!
+  $input: ExpenseInput!
+) {
+  updateExpense(
+    expenseId: $expenseId
+    expenseGroupId: $expenseGroupId
+    input: $input
+  )
+}
+
+mutation deleteExpense($expenseGroupId: String!, $expenseId: String!) {
+  deleteExpense(expenseGroupId: $expenseGroupId, expenseId: $expenseId)
+}
+
+mutation updateExpensePaidStatus(
+  $isPaid: Boolean!
+  $expenseGroupId: String!
+  $expenseId: String!
+) {
+  updateExpensePaidStatus(
+    isPaid: $isPaid
+    expenseGroupId: $expenseGroupId
+    expenseId: $expenseId
+  )
+}
+
+mutation updatePassword($userId: String!, $password: String!) {
+  updatePassword(userId: $userId, password: $password)
+}

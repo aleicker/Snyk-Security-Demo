@@ -1,0 +1,63 @@
+query getAllExpenseGroups {
+  expenseGroups: getAllExpenseGroups {
+    _id
+    startDate
+    endDate
+    totalBudget
+    expenses {
+      _id
+      name
+      balance
+      dueDate
+      isPaid
+      note
+    }
+  }
+}
+
+query getExpenseGroupById($_id: String!) {
+  expenseGroup: getExpenseGroupById(_id: $_id) {
+    _id
+    startDate
+    endDate
+    totalBudget
+    expenses {
+      _id
+      name
+      balance
+      dueDate
+      isPaid
+      note
+    }
+  }
+}
+
+query loginUser($username: String!, $password: String!) {
+  loginUser(username: $username, password: $password)
+}
+
+query logoutUser {
+  logoutUser
+}
+
+query getUser {
+  user: getUser {
+    _id
+    email
+    username
+  }
+}
+
+query getSecurityQuestions($email: String!) {
+  questions: getSecurityQuestions(email: $email) {
+    userId
+    questions {
+      _id
+      question
+    }
+  }
+}
+
+query validateSecurityQuestionAnswers($userId: String!, $formData: String!) {
+  isValid: validateSecurityQuestionAnswers(userId: $userId, formData: $formData)
+}
