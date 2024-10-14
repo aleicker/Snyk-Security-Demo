@@ -47,7 +47,7 @@
     "react-query": "^3.39.3",
     "recharts": "^2.7.3",
     "sass": "^1.29.0",
-    "typescript": "5.1.6",
+    "typescript": "5.6.2",
     "uuid": "^9.0.0",
     "yup": "^1.2.0"
   },
